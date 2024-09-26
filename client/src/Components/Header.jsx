@@ -39,7 +39,9 @@ const Header = () => {
             <Moon size={20} />
           </Button>
           <Link to="/signin">
-            <Button gradientDuoTone="purpleToBlue">Sign In</Button>
+            <Button gradientDuoTone="purpleToBlue" outline>
+              Sign In
+            </Button>
           </Link>
           <NavbarToggle />
         </div>
