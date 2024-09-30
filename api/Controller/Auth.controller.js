@@ -1,9 +1,9 @@
-import User from "../models/user.model";
+import User from "../models/user.model.js";
 import bcryptjs from "bcryptjs";
-import { errorHandler } from "../utils/Error";
+import { errorHandler } from "../utils/Error.js";
 
 export const signup = async (req, res, next) => {
-  const { username, email, password } = res.body;
+  const { username, email, password } = req.body;
 
   if (
     !username ||
@@ -23,6 +23,7 @@ export const signup = async (req, res, next) => {
   });
   try {
     await newUser.save();
+    res.json("sucessful");
   } catch (error) {
     next(error);
   }
