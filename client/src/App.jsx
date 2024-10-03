@@ -11,6 +11,8 @@ import Signin from "./Pages/Signin";
 import Signup from "./Pages/Signup";
 import Projects from "./Pages/Projects";
 import Header from "./Components/Header";
+import Footer from "./Components/Footercomponent";
+import Footercomponent from "./Components/Footercomponent";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -27,6 +29,7 @@ function App() {
           <Route path="/signup" element={<Signup />} />
           <Route path="/projects" element={<Projects />} />
         </Routes>
+        <Footercomponent />
       </BrowserRouter>
     </>
   );
