@@ -5,7 +5,7 @@ import { Link, useNavigate } from "react-router-dom";
 const Signup = () => {
   const [formdata, setformdata] = useState({});
   const [errorMessage, setErrorMessage] = useState(null);
-  const [loading, setLoding] = useState(false);
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
   const handleChange = (e) => {
     setformdata({ ...formdata, [e.target.id]: e.target.value.trim() });
@@ -16,7 +16,7 @@ const Signup = () => {
       return setErrorMessage("Please fill out All fields");
     }
     try {
-      setLoding(true);
+      setLoading(true);
       setErrorMessage(null);
       const res = await fetch("/api/auth/signup", {
         method: "POST",
@@ -29,14 +29,14 @@ const Signup = () => {
       if (data.success === false) {
         return setErrorMessage(data.messaage);
       }
-      setLoding(false);
+      setLoading(false);
 
       if (res.ok) {
         return navigate("/signin");
       }
     } catch (error) {
       setErrorMessage(error.message);
-      setLoding(false);
+      setLoading(false);
     }
   };
   return (
